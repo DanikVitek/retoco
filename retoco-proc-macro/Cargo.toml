@@ -1,0 +1,11 @@
+[package]
+name = "retoco-proc-macro"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "2.0.77"
+retoco-token-stream = { path = "../retoco-token-stream" }
