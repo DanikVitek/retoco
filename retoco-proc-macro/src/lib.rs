@@ -9,14 +9,8 @@ use syn::{
 pub fn regex(input: TokenStream) -> TokenStream {
     let RegexDeclaration { name, pattern } = parse_macro_input!(input as RegexDeclaration);
 
-    let tokens = match regex_to_tokens(&pattern.value(), name) {
-        Ok(tokens) => tokens,
-        Err(err) => match err {
-            retoco_token_stream::Error::RegexSyntax(err) => {
-                syn::Error::new_spanned(pattern, err).to_compile_error()
-            }
-        },
-    };
+    let tokens = regex_to_tokens(name, &pattern.value())
+        .unwrap_or_else(|err| syn::Error::new_spanned(pattern, err).to_compile_error());
 
     tokens.into()
 }

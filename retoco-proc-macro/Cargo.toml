@@ -7,5 +7,6 @@ edition.workspace = true
 proc-macro = true
 
 [dependencies]
-syn = "2.0.77"
+syn = "2.0"
 retoco-token-stream = { path = "../retoco-token-stream" }
+iex = "0.2"

@@ -1,0 +1,15 @@
+[package]
+name = "retoco-test-proc-macro"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+proc-macro = true
+
+[dependencies]
+arbitrary = "1.3"
+proc-macro2 = "1.0"
+proptest = "1.5"
+quote = "1.0"
+regex-syntax = { version = "0.8", features = ["arbitrary"] }
+syn = "2.0"

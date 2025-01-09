@@ -1,12 +1,11 @@
-use std::sync::LazyLock;
-
 use regex::Regex;
 use retoco::regex;
 
 #[test]
-fn simple() {
+fn literal() {
     regex!(foo = r"foo");
     assert!(foo::is_match("foo"));
+    assert!(!foo::is_match("bar"));
 }
 
 #[test]
@@ -17,11 +16,11 @@ fn nothing() {
 
 #[test]
 fn empty() {
-    regex!(empty = r"");
-    static EMPTY: LazyLock<Regex> = LazyLock::new(|| Regex::new("").unwrap());
+    regex!(empty = "");
+    let empty = Regex::new("").unwrap();
 
-    assert_eq!(empty::is_match(""), EMPTY.is_match(""));
-    assert_eq!(empty::is_match("foo"), EMPTY.is_match("foo"));
+    assert_eq!(empty::is_match(""), empty.is_match(""));
+    assert_eq!(empty::is_match("foo"), empty.is_match("foo"));
 }
 
 // #[test]

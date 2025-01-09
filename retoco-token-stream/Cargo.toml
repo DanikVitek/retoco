@@ -4,8 +4,8 @@ version.workspace = true
 edition.workspace = true
 
 [dependencies]
-proc-macro2 = "1.0.86"
-quote = "1.0.37"
-regex-syntax = "0.8.4"
-syn = "2.0.77"
-thiserror = "1.0.63"
+iex = "0.2.0"
+proc-macro2 = "1.0"
+quote = "1.0"
+regex-syntax = "0.8"
+syn = "2.0"
