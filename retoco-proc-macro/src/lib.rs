@@ -9,7 +9,7 @@ use syn::{
 pub fn regex(input: TokenStream) -> TokenStream {
     let RegexDeclaration { name, pattern } = parse_macro_input!(input as RegexDeclaration);
 
-    let tokens = regex_to_tokens(name, &pattern.value())
+    let tokens = regex_to_tokens(name, &pattern.value(), Default::default()) // TODO: options
         .unwrap_or_else(|err| syn::Error::new_spanned(pattern, err).to_compile_error());
 
     tokens.into()

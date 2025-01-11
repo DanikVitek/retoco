@@ -4,7 +4,8 @@ version.workspace = true
 edition.workspace = true
 
 [dependencies]
-iex = "0.2.0"
+#iex = "0.2.0"
+either_of = "0.1"
 proc-macro2 = "1.0"
 quote = "1.0"
 regex-syntax = "0.8"
